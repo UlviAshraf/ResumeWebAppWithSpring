@@ -7,6 +7,11 @@
 <%@ page import="java.util.List" %>
 <%@page contentType="text/html" pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="f" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,22 +35,22 @@
     <title>JSP Page</title>
 </head>
 <body>
-<%
-    List<User> list = (List<User>) request.getAttribute("list");
-%>
 <div class="container col-12">
     <div class="mycontainer col-4">
-        <form action="users" method="GET">
+        <f:form action="users" method="GET" modelAttribute="user">
             <div class="form-group">
                 <label for="name">name:</label>
-                <input placeholder="Enter name" class="form-control" type="text" name="name" value=""/>
+                <f:input placeholder="Enter name" class="form-control" type="text" path="name"/>
+                <form:errors path="name"/>
             </div>
             <div class="form-group">
                 <label for="surname">surname:</label>
-                <input placeholder="Enter surname" class="form-control" type="text" name="surname" value=""/>
+                <f:input placeholder="Enter surname" class="form-control" type="text" path="surname"/>
+                <form:errors path="surname"/>
+
             </div>
-            <input class="btn btn-primary" type="submit" name="search" value="Search" id="search"/>
-        </form>
+            <f:button class="btn btn-primary" type="submit" id="search">Search</f:button>
+        </f:form>
     </div>
     <div>
         <table class="table mycontainer">
@@ -60,15 +65,13 @@
             </thead>
             <tbody>
             <%--            <%--%>
-
             <%--                for (User u : list) {--%>
             <%--            %>--%>
             <c:forEach items="${list}" var="u">
                 <tr>
                     <td>${u.name}</td>
                     <td>${u.surname}</td>
-                    <td>${u.nationality}</td>
-                        <%--                <td><%=u.getNationality().getNationality() == null ? "N/A" : u.getNationality().getNationality()%>--%>
+                    <td>${u.nationality.nationality}</td>
                     </td>
                     <td style="width: 5px">
                         <input type="hidden" name="id" value="$(u.id)"/>
