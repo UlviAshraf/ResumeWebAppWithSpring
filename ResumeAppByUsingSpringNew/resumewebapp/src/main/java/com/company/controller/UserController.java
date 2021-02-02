@@ -62,3 +62,16 @@ public class UserController {
         return new UserForm();
     }
 }
+//    @RequestMapping(method = RequestMethod.GET)
+//    public ModelAndView index(@RequestBody(required = false) UserForm u) {
+//        List<User> list = null;
+//        if (u != null) {
+//            list = userService.getAllUser(u.getName(), u.getSurname(), u.getNationalityId());
+//        } else {
+//            list = userService.getAllUser(null, null, null);
+//        }
+//        ModelAndView mv = new ModelAndView("users");
+//        mv.addObject("list", list);
+//        return mv;
+//    }
+
