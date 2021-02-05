@@ -15,18 +15,18 @@
 </head>
 <body class="login_background">
 
-<form action="login" method="POST">
+<form action="login" method="post">
     <div div class="col-4 container login_fix_">
         <center>
             <h1>Login:</h1>
         </center>
         <div class="form-group">
             <label>Email:</label>
-            <input class="form-control" type="email" name="email" placeholder="enter email">
+            <input class="form-control" type="email" name="email" placeholder="Username">
         </div>
         <div class="form-group">
             <label>Password:</label>
-            <input class="form-control" type="password" name="password" placeholder="enter password">
+            <input class="form-control" type="password" name="password" placeholder="Password">
         </div>
         <button class="btn btn-primary" type="submit" name="Login">Login</button>
     </div>
